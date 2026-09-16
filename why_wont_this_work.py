@@ -8,9 +8,9 @@ def my_quadratic(a, b, c):
     # y2 = -b - √(b^2 - 4ac) / 2a
     # on error: print out error, and return warning values
     try:
-        plus = (-1*b+((b*b-4*a*c)**(0.5))/2*a)
-        minus = (-b-((b**2-4*a*c)**(.5))/2*a)
-    except ValueError as e:
+        plus = (-1*b+((b*b-4*a*c)**(0.5))/(2*a))
+        minus = (-b-((b**2-4*a*c)**(.5))/(2*a))
+    except ZeroDivisionError as e:
         print(e, "- Function is not Quadratic")
         print("Divided by zero")
         plus = None

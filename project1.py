@@ -6,11 +6,12 @@ def is_prime(n):
             return False
     return True
 
-
 def are_relatively_prime(x, y):
-  while y != 0:
-    x, y = y, x % y
-  return x == 1
+    for i in range(2, min(x, y) + 1):
+        if x % i == 0 and y % i == 0:
+            return False
+
+    return True
 
 
 def primes_up_to(n):

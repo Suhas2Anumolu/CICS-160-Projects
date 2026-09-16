@@ -8,10 +8,9 @@ def is_prime(n):
 
 
 def are_relatively_prime(x, y):
-    if is_prime(x) and is_prime(y):
-        return True
-    else:
-        return False
+  while y != 0:
+    x, y = y, x % y
+  return x == 1
 
 
 def primes_up_to(n):
@@ -38,12 +37,6 @@ def prime_decomposition(n):
 
 
 def decomp_check(n):
-    duplicate = set()
 
-    for num in prime_decomposition(n):
-        if num in duplicate:
-            return False
-        duplicate.add(num)
-        if len(duplicate) > 2:
-            return False
-    return True
+    decomp = prime_decomposition(n)
+    return len(decomp) == 2 and decomp[0] != decomp[1]
